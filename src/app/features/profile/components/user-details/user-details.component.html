@@ -1,11 +1,9 @@
 <!-- Show the user details -->
 <div>
-  <app-star [state]="user.favorite" (favorite)="makeFavorite($event)"></app-star><br>
+  <app-star [isFavorite]="user.favorite" (onFavoriteChanged)="updateFavorite($event)"></app-star><br>
   <span>isFavorite: {{user.favorite}}</span><br>
   <span>dob: {{user.dob}}</span> <br>
   <span>doj: {{user.doj}}</span> <br>
   <span>Blood Group: {{user.bloodGroup}}</span> <br>
   <span>Name: {{user.name}}</span> <br>
-
-  {{value1}}
 </div>

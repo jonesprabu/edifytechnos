@@ -8,9 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class StarComponent implements OnInit {
 
-  @Input() state = false;
+  @Input() isFavorite = false;
 
-  @Output() favorite = new EventEmitter<boolean>();
+  @Output() onFavoriteChanged = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class StarComponent implements OnInit {
   }
 
   onClick() {
-    this.favorite.emit(!this.state);
+    this.onFavoriteChanged.emit(!this.isFavorite);
   }
 
 }
