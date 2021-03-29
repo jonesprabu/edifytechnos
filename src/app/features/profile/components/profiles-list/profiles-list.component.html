@@ -1,4 +1,10 @@
 <!-- Bring the flex layout-->
-<ng-container *ngFor="let user of users">
-  <app-user-details [user]="user"></app-user-details> <br>
-</ng-container>
+<div fxLayout="row wrap" fxLayout.xs="column">
+    <div fxFlex.lt-md="50" fxFlex="33" fxFlex.gt-md="25" *ngFor="let user of users">
+      <!-- <ng-container [ngSwitch]="user.favorite"> -->
+        <!-- <app-user-details *ngSwitchCase="true" [user]="user"></app-user-details> -->
+      <!-- </ng-container> -->
+      <app-user-details [user]="user"></app-user-details>
+    </div>
+</div>
+
