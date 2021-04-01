@@ -1,0 +1,29 @@
+:host {
+  .favorite {
+    border: 1px solid blue;
+  }
+  .not-a-favorite {
+    border: 1px solid grey;
+  }
+  .user-details {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+
+    app-star {
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      padding: 5px;
+    }
+
+    .profile {
+      width: 120px;
+      height: 120px;
+    }
+    .user-name {
+      padding: 10px;
+    }
+  }
+}
