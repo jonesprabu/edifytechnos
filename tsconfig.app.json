@@ -3,20 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [
-      "node"
-    ],
-    "paths": {
-      "@mocks/*": [
-        "mocks/*"
-      ],
-      "@edifytechnos/*": [
-        "src/app/*"
-      ],
-      "@env/*": [
-        "src/environments/*"
-      ],
-    }
+    "types": []
   },
   "files": [
     "src/main.ts",
