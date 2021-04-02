@@ -7,13 +7,24 @@
 
   .example-sidenav-content {
     display: flex;
-    height: 100%;
     align-items: center;
     justify-content: center;
     background-color: lightgrey;
+
   }
 
   .example-sidenav {
-    padding: 20px;
+    width: 260px;
+    .logged-in-user {
+      height: 240px;
+      background-color: grey;
+    }
+    mat-list {
+      padding: 20px;
+      button {
+        width: 100%;
+        text-align: left;
+      }
+    }
   }
 }

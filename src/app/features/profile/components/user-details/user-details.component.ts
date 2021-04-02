@@ -62,9 +62,6 @@ export class UserDetailsComponent implements OnChanges, OnInit, DoCheck, AfterCo
     console.log('UserDetails: OnDestroy', this.user.name);
   }
 
-
-
-
   updateFavorite(isFavorite: boolean) {
     console.log("Triggered!!!", isFavorite);
     this.user.favorite = isFavorite;

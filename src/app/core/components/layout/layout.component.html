@@ -1,19 +1,51 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+  <mat-drawer #drawer class="example-sidenav" mode="push">
+    <div class="logged-in-user"></div>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Profile</div>
+      <mat-list-item>
+        <button mat-button routerLink="profiles/all" (click)="drawer.toggle()">
+          <mat-icon mat-list-icon>notes</mat-icon>All Profiles
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="profiles/add" (click)="drawer.toggle()">
+          <mat-icon mat-list-icon>add</mat-icon>Add Profile
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Product</div>
+      <mat-list-item>
+        <button mat-button>
+          <mat-icon mat-list-icon>notes</mat-icon>All Products
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button>
+          <mat-icon mat-list-icon>notes</mat-icon>Add Product
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <app-profiles-list></app-profiles-list>
-
-    <!-- <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
-    </button> -->
-
+  <div class="example-sidenav-content" fxLayout="column">
+    <!-- <app-profiles-list></app-profiles-list> -->
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Aroha Technologies Angular Training</span>
+      <span class="example-spacer" fxFlex></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="router-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
 </mat-drawer-container>

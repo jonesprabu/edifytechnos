@@ -12,5 +12,6 @@
     </div>
   </div>
   <span class="user-name">{{user.name | uppercase}}</span>
+  <!-- TODO: Two way data binding for input property-->
   <app-star [isFavorite]="user.favorite" (onFavoriteChange)="updateFavorite($event)"></app-star>
 </div>
