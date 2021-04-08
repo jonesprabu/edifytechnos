@@ -1,40 +1,53 @@
-<form #addUserForm="ngForm" fxLayout="column" (ngSubmit)="addUser(addUserForm)">
+<form #addUserForm="ngForm" fxLayout="column" fxLayoutAlign="start center" (ngSubmit)="addUser(addUserForm)">
 
-  <!-- <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field> -->
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput #name="ngModel" id="name" placeholder="Enter Name" name="name" [(ngModel)]="user.name" required>
+    <mat-hint>Full Name</mat-hint>
+    <mat-error [hidden]="name.valid || name.pristine">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
 
-  <input matInput #name="ngModel" id="name" placeholder="Name" name="name" [(ngModel)]="user.name" required>
-  <div style="min-height: 40px" [hidden]="name.valid || name.pristine">
-    This field is required
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>DOB</mat-label>
+    <input matInput #dob="ngModel" id="dob" placeholder="Enter DOB" name="dob" [(ngModel)]="user.dob" required>
+    <mat-hint>Date of Birth</mat-hint>
+    <mat-error [hidden]="name.valid || name.pristine">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
 
-  <input matInput #dob="ngModel" id="dob" placeholder="DOB" name="dob" [ngModel]="user.dob" required>
-  <div style="min-height: 40px" [hidden]="dob.valid || dob.pristine">
-    This field is required
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>DOJ</mat-label>
+    <input matInput #doj="ngModel" id="doj" placeholder="Enter DOJ" name="doj" [(ngModel)]="user.doj" required>
+    <mat-hint>Date of Joining</mat-hint>
+    <mat-error [hidden]="name.valid || name.pristine">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
 
-  <input matInput id="doj" placeholder="DOJ" name="doj" [ngModel]="user.doj" required>
+  <mat-form-field appearance="fill">
+    <mat-label>Select Blood Group</mat-label>
+    <mat-select [(ngModel)]="user.bloodGroup" name="bloodgroup" required>
+      <mat-option *ngFor="let bg of bloodGroups" [value]="bg.value">
+        {{bg.value}}
+      </mat-option>
+    </mat-select>
+    <mat-hint>Select a Blood Group</mat-hint>
+    <mat-error [hidden]="name.valid || name.pristine">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
 
-  <label>Select Blood Group</label>
-  <select name="bloodGroup" [ngModel]="user.bloodGroup" required>
-    <option [value]="">Select Blood Group</option>
-    <option *ngFor="let bg of bloodGroups" [value]="bg.value">
-      {{bg.value}}
-    </option>
-  </select>
-
-  {{'Is name valid - '+name.valid}} <br>
+  <!-- {{'Is name valid - '+name.valid}} <br>
   {{'Is Form is fresh - '+addUserForm.pristine}} <br>
   {{user.name}} <br>
   {{user.dob}} <br>
   {{user.doj}} <br>
-  {{user.bloodGroup}} <br>
+  {{user.bloodGroup}} <br> -->
 
   <div class="submit-button">
-    <button mat-flat-button color="primary" type="submit" [disabled]="addUserForm.invalid">Submit</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="addUserForm.invalid">Submit</button>
   </div>
 </form>

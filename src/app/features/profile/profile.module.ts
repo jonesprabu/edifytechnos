@@ -6,10 +6,14 @@ import { StarComponent } from './components/star/star.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileRoutingModule } from './profile-routing.module';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AddUserComponent } from './components/add-user/add-user.component';
 
@@ -22,10 +26,16 @@ import { AddUserComponent } from './components/add-user/add-user.component';
     MatIconModule,
     MatFormFieldModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports: [
-    ProfilesListComponent
+    ProfilesListComponent,
+    MatFormFieldModule
   ]
 })
 export class ProfileModule { }

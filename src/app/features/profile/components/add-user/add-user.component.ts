@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {
+  MatSnackBar, MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { User } from '../../model/user.model';
 
 @Component({
@@ -43,7 +47,9 @@ export class AddUserComponent implements OnInit {
     bloodGroup: 'A+'
   } as User;
 
-  constructor() { }
+  constructor(
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
@@ -56,8 +62,15 @@ export class AddUserComponent implements OnInit {
       doj: userForm.controls.doj.value
     } as User;
 
-    console.log('Is form Dirty!', userForm.dirty);
-    console.log(newUser);
+    // TODO: Call Api and save the data.
+
+
+    // TODO: Call the sanckbar in the success of api call.
+    this.snackBar.open('Added User Successfully!!!', 'close', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'bottom'
+    });
   }
 
 }
