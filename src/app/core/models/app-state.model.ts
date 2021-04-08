@@ -6,7 +6,9 @@ export class AppState<T> {
    * App State Object
    */
   private readonly subject: BehaviorSubject<T>;
+
   readonly $: Observable<T>;
+
   get value(): T {
     return this.subject.getValue();
   }

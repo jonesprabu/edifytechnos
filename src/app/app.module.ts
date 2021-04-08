@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { ProfileModule } from './features/profile/profile.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ProfileModule } from './features/profile/profile.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     // Material Modules
     MatSidenavModule,

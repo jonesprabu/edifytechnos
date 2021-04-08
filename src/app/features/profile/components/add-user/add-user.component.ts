@@ -5,6 +5,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { User } from '../../model/user.model';
+import { ProfileDataService } from '../../services/profile-data.service';
 
 @Component({
   selector: 'app-add-user',
@@ -48,13 +49,14 @@ export class AddUserComponent implements OnInit {
   } as User;
 
   constructor(
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private profileDataService: ProfileDataService
   ) { }
 
   ngOnInit(): void {
   }
 
-  addUser(userForm: NgForm) {
+  async addUser(userForm: NgForm) {
 
     const newUser: User = {
       name: userForm.controls.name.value,
@@ -63,7 +65,7 @@ export class AddUserComponent implements OnInit {
     } as User;
 
     // TODO: Call Api and save the data.
-
+    await this.profileDataService.insertUser(newUser);
 
     // TODO: Call the sanckbar in the success of api call.
     this.snackBar.open('Added User Successfully!!!', 'close', {
