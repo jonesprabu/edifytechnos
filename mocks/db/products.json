@@ -1,50 +1,62 @@
 [
   {
     "id": 1,
-    "imgId": "",
-    "doe": "15 Sep 2021",
-    "dom": "15 Sep 2020",
-    "name": "Aata Noodles",
-    "seller": "Maggie",
-    "type": "Noodles",
-    "price": "99",
-    "quantity": "L",
-    "addedToCartCount": 0
+    "name": "Fresh Soap",
+    "price": 80.47972613704866,
+    "quantity": "343.4253283305393g"
   },
   {
     "id": 2,
-    "imgId": "",
-    "doe": "15 Sep 2021",
-    "dom": "15 Sep 2020",
-    "name": "Carrot",
-    "seller": "Fresh to Home",
-    "type": "Vegetables",
-    "price": "50",
-    "quantity": "500g",
-    "addedToCartCount": 0
+    "name": "Concrete Vatu",
+    "price": 10.116429068427713,
+    "quantity": "120.1682592774842g"
   },
   {
     "id": 3,
-    "imgId": "",
-    "doe": "15 Sep 2021",
-    "dom": "15 Sep 2020",
-    "name": "Chicken",
-    "seller": "Suguna",
-    "type": "Meat",
-    "price": "120",
-    "quantity": "500g",
-    "addedToCartCount": 0
+    "name": "Engineer navigate web-enabled",
+    "price": 59.12690942428607,
+    "quantity": "187.5955701011798g"
   },
   {
     "id": 4,
-    "imgId": "",
-    "doe": "15 Sep 2021",
-    "dom": "15 Sep 2020",
-    "name": "Sheer Fish",
-    "seller": "Daily Fish",
-    "type": "Meat",
-    "price": "499",
-    "quantity": "500g",
-    "addedToCartCount": 0
+    "name": "state",
+    "price": 23.42328869613146,
+    "quantity": "230.90032668574344g"
+  },
+  {
+    "id": 5,
+    "name": "index neural",
+    "price": 11.38812142976069,
+    "quantity": "980.1759236150318g"
+  },
+  {
+    "id": 6,
+    "name": "Implemented Automotive administration",
+    "price": 70.34318672503524,
+    "quantity": "158.09502724446367g"
+  },
+  {
+    "id": 7,
+    "name": "olive Toys",
+    "price": 45.62151437188684,
+    "quantity": "476.1965458259763g"
+  },
+  {
+    "id": 8,
+    "name": "USB",
+    "price": 80.34509173115842,
+    "quantity": "82.7305025877072g"
+  },
+  {
+    "id": 9,
+    "name": "reboot project",
+    "price": 6.412180979555604,
+    "quantity": "224.42211603415552g"
+  },
+  {
+    "id": 10,
+    "name": "virtual morph",
+    "price": 42.19441714536245,
+    "quantity": "691.5276643685748g"
   }
 ]

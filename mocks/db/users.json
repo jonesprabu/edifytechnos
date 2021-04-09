@@ -4,9 +4,10 @@
     "dob": "15 Sep",
     "doj": "21-08-2018",
     "name": "Jones Prabu Justin Raj",
-    "email": "jones@difytechnos.com",
+    "email": "jones@edifytechnos.com",
     "bloodGroup": "B+ve",
-    "favorite": false
+    "favorite": false,
+    "password": "password"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "name": "Prabu",
     "email": "prabu@difytechnos.com",
     "bloodGroup": "B-ve",
-    "favorite": true
+    "favorite": true,
+    "password": "password"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "name": "Justin",
     "email": "justin@difytechnos.com",
     "bloodGroup": "AB-ve",
-    "favorite": false
+    "favorite": false,
+    "password": "password"
   },
   {
     "id": 4,
@@ -33,6 +36,7 @@
     "name": "Raj",
     "email": "Raj@difytechnos.com",
     "bloodGroup": "A+ve",
-    "favorite": true
+    "favorite": true,
+    "password": "password"
   }
 ]

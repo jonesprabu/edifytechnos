@@ -16,13 +16,20 @@ import { MatListModule } from '@angular/material/list';
 
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { ProfileModule } from './features/profile/profile.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './core/components/login/login.component';
+import { RegisterComponent } from './core/components/register/register.component';
+import { MaterialModule } from './core/modules/material/material.module';
+import { JwtInterceptorService } from './core/services/interceptors/jwt-interceptor.service';
+import { ErrorHandlerInterceptorService } from './core/services/interceptors/error-handler-interceptor.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,17 +38,16 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     // Material Modules
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatListModule,
+    MaterialModule,
     // --------
     FlexLayoutModule,
 
     ProfileModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
