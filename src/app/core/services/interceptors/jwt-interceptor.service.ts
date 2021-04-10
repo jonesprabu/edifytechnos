@@ -15,8 +15,18 @@ export class JwtInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    // Jwt Authentication Stratergy
-    const token = this.authService.loggedInUserState.value.authToken;
+    // Jwt Authentication Strategy
+    let token: string | null = this.authService.loggedInUserState.value.authToken;
+
+    if(!token && sessionStorage.getItem('authToken')){
+      const loggedInUser = this.authService.loggedInUserState.value;
+      loggedInUser.authToken = sessionStorage.getItem('authToken');
+      loggedInUser.name = ''+sessionStorage.getItem('userName');
+
+      token = loggedInUser.authToken;
+      this.authService.loggedInUserState.value = loggedInUser;
+    }
+
     console.log(req.url, token);
     if (token && req.url.startsWith(`${environment.api_server}/api`)) {
       req = req.clone({

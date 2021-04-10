@@ -26,14 +26,14 @@ function verifyToken(token) {
 }
 
 // Check if the user exists in database
-function isAuthenticated({ email, password }) {
-  return userdb.findIndex(user => user.email === email && user.password === password) !== -1
+function getUserIndex({ email, password }) {
+  return userdb.findIndex(user => user.email === email && user.password === password)
 }
 
 
-// server.use(function (req, res, next) {
-//   setTimeout(next, 1000);
-// });
+server.use(function (req, res, next) {
+  setTimeout(next, 1000);
+});
 
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
@@ -44,7 +44,7 @@ server.post('/auth/register', (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;
 
-  if (isAuthenticated({ email, password }) === true) {
+  if (getUserIndex({ email, password }) !== -1) {
     const status = 401;
     const message = 'Email and Password already exist';
     res.status(status).json({ status, message });
@@ -82,14 +82,15 @@ server.post('/auth/login', (req, res) => {
   console.log("login endpoint called; request body:");
   console.log(req.body);
   const { email, password } = req.body;
-  if (isAuthenticated({ email, password }) === false) {
+  if (getUserIndex({ email, password }) === -1) {
     const status = 401;
     const message = 'Incorrect email or password';
     res.status(status).json({ status, message });
     return;
   }
-  const authToken = createToken({ email, password });
-  res.status(200).json({ authToken });
+  const user = userdb[getUserIndex({ email, password })];
+  user.authToken = createToken({ email, password });
+  res.status(200).json(user);
 });
 
 server.use(/^(?!\/auth).*$/, (req, res, next) => {

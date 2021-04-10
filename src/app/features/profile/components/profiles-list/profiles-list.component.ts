@@ -14,6 +14,7 @@ export class ProfilesListComponent implements OnInit, OnDestroy {
   // TODO: Move this to service
   // users: User[] = [] as User[];
   errMsg: String = '';
+  loading = false;
 
   // private destroy$ = new Subject<void>();
   // private unSubscribeFetchUserList1: Subscription = {} as Subscription;
@@ -21,28 +22,29 @@ export class ProfilesListComponent implements OnInit, OnDestroy {
 
   constructor(
     public profileDataService: ProfileDataService
-  ) {  }
+  ) { }
 
   ngOnInit(): void {
 
+    console.log("Before Async fun call in oninit");
     // Api call
-    this.profileDataService.fetchUserList();
+    this.loadUsersList();
+    console.log("After Async fun call in oninit");
 
-
-      // .pipe(takeUntil(this.destroy$))
-      // .subscribe(
-      //   // Success Callback
-      //   (users) => {
-      //     this.errMsg = '';
-      //     console.log(users);
-      //     this.users = users;
-      //   },
-      //   // Err callback
-      //   (err) => {
-      //     this.errMsg = "Some technical Difficulties, Please try again later!!!"
-      //     console.log(err);
-      //   }
-      // );
+    // .pipe(takeUntil(this.destroy$))
+    // .subscribe(
+    //   // Success Callback
+    //   (users) => {
+    //     this.errMsg = '';
+    //     console.log(users);
+    //     this.users = users;
+    //   },
+    //   // Err callback
+    //   (err) => {
+    //     this.errMsg = "Some technical Difficulties, Please try again later!!!"
+    //     console.log(err);
+    //   }
+    // );
 
   }
 
@@ -52,6 +54,19 @@ export class ProfilesListComponent implements OnInit, OnDestroy {
 
     // this.unSubscribeFetchUserList1.unsubscribe();
     // this.unSubscribeFetchUserList2.unsubscribe();
+  }
+
+  async loadUsersList() {
+    try {
+      console.log("Before Api in loadUsersList");
+      this.loading = true;
+      await this.profileDataService.fetchUserList();
+      console.log("After Api in loadUsersList");
+      this.loading = false
+    } catch (err) {
+      this.loading = false;
+    }
+
   }
 
 }

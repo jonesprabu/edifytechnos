@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {
-  MatSnackBar, MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from '../../model/user.model';
 import { ProfileDataService } from '../../services/profile-data.service';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
 
   public bloodGroups = [
     {
@@ -41,14 +38,6 @@ export class AddUserComponent implements OnInit {
       value: 'AB-',
     },
   ];
-
-  public user: User = {
-    name: 'Test',
-    dob: '21/08',
-    doj: '21/02/2017',
-    bloodGroup: 'A+'
-  } as User;
-
   public loading = false;
 
   constructor(
@@ -85,12 +74,12 @@ export class AddUserComponent implements OnInit {
 
     } catch (err) {
       this.loading = false;
-      // TODO: Call the sanckbar in the err of api call.
-      this.snackBar.open('Err occurred please try again !!!', 'close', {
-        duration: 3000,
-        horizontalPosition: 'end',
-        verticalPosition: 'bottom'
-      });
+      // // TODO: Call the sanckbar in the err of api call.
+      // this.snackBar.open('Err occurred please try again !!!', 'close', {
+      //   duration: 3000,
+      //   horizontalPosition: 'end',
+      //   verticalPosition: 'bottom'
+      // });
 
     }
   }

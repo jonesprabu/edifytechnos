@@ -16,26 +16,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { MaterialModule } from 'src/app/core/modules/material/material.module';
 
 
 @NgModule({
-  declarations: [ProfilesListComponent, UserDetailsComponent, StarComponent, AddUserComponent],
+  declarations: [ProfilesListComponent, UserDetailsComponent, StarComponent, AddUserComponent, CreateUserComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
-    MatIconModule,
-    MatFormFieldModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatSnackBarModule
+    MaterialModule
   ],
   exports: [
     ProfilesListComponent,
-    MatFormFieldModule
+    MaterialModule
   ]
 })
 export class ProfileModule { }

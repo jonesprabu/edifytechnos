@@ -1,5 +1,5 @@
-<form #loginForm="ngForm" fxLayout="column" fxLayoutAlign="start center" (ngSubmit)="login(loginForm)">
-  <div fxLayout="column">
+<form #loginForm="ngForm" fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="login(loginForm)">
+  <div class="loginFieldsWrapper" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="40px">
 
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
@@ -15,7 +15,7 @@
       <mat-label>Password</mat-label>
       <input type="password" matInput #passwordField="ngModel" id="password" placeholder="Enter Password"
         name="password" [(ngModel)]="loginPassword" required>
-      <mat-hint>Enter email to login</mat-hint>
+      <mat-hint>Enter password to login</mat-hint>
       <mat-error [hidden]="passwordField.valid || passwordField.pristine">
         This field is required.
       </mat-error>
@@ -23,5 +23,6 @@
     <div class="submit-button">
       <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </div>
+    <mat-spinner diameter="20" *ngIf="loading"></mat-spinner>
   </div>
 </form>

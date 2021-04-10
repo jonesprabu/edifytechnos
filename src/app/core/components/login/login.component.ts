@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public loginEmail = '';
   public loginPassword = '';
+  public loading = false;
 
   private destroy$ = new Subject<void>();
 
@@ -25,16 +26,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.authService.loggedInUserState.$
-    .pipe(takeUntil(this.destroy$))
-    .subscribe((loggedInUser)=> {
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((loggedInUser) => {
 
-      if(loggedInUser?.authToken) {
-        console.log('Authenticated!!!', loggedInUser.authToken);
-        // TODO: redirect to home page.
-        this.router.navigate(['home']);
-      }
+        if (loggedInUser?.authToken) {
+          console.log('Authenticated!!!', loggedInUser.authToken);
+          // redirect to home page.
+          this.router.navigate(['home']);
+        }
 
-    })
+      })
   }
 
   ngOnDestroy() {
@@ -42,8 +43,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  login(loginForm: NgForm) {
-    console.log(loginForm);
-    this.authService.login({ email: this.loginEmail, password: this.loginPassword } as LoggedInUser);
+  async login(loginForm: NgForm) {
+    try {
+      this.loading = true;
+      await this.authService.login({ email: this.loginEmail, password: this.loginPassword } as LoggedInUser);
+      this.loading = false;
+    } catch (err) {
+      loginForm.form.markAsDirty();
+      console.log(loginForm);
+      this.loading = false;
+    }
   }
 }

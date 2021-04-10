@@ -39,8 +39,13 @@
       </button>
       <span>Aroha Technologies Angular Training</span>
       <span class="example-spacer" fxFlex></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <button mat-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>account_circle</mat-icon>
+        <span>{{authService.loggedInUserState.value.name}}</span>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+      (click)="logut()">
+        <mat-icon>logout</mat-icon>
       </button>
     </mat-toolbar>
     <div class="router-content">

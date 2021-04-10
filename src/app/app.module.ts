@@ -45,8 +45,8 @@ import { ErrorHandlerInterceptorService } from './core/services/interceptors/err
     ProfileModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true }
-    // { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -2,40 +2,40 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput #name="ngModel" id="name" placeholder="Enter Name" name="name" [(ngModel)]="user.name" required>
+    <input matInput id="name" placeholder="Enter Name" name="name" required>
     <mat-hint>Full Name</mat-hint>
-    <mat-error [hidden]="name.valid || name.pristine">
+    <mat-error [hidden]="">
       This field is required.
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>DOB</mat-label>
-    <input matInput #dob="ngModel" id="dob" placeholder="Enter DOB" name="dob" [(ngModel)]="user.dob" required>
+    <input matInput id="dob" placeholder="Enter DOB" name="dob" required>
     <mat-hint>Date of Birth</mat-hint>
-    <mat-error [hidden]="name.valid || name.pristine">
+    <mat-error [hidden]="">
       This field is required.
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>DOJ</mat-label>
-    <input matInput #doj="ngModel" id="doj" placeholder="Enter DOJ" name="doj" [(ngModel)]="user.doj" required>
+    <input matInput id="doj" placeholder="Enter DOJ" name="doj" required>
     <mat-hint>Date of Joining</mat-hint>
-    <mat-error [hidden]="name.valid || name.pristine">
+    <mat-error [hidden]="">
       This field is required.
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Select Blood Group</mat-label>
-    <mat-select [(ngModel)]="user.bloodGroup" name="bloodgroup" required>
+    <mat-select name="bloodgroup" required>
       <mat-option *ngFor="let bg of bloodGroups" [value]="bg.value">
         {{bg.value}}
       </mat-option>
     </mat-select>
     <mat-hint>Select a Blood Group</mat-hint>
-    <mat-error [hidden]="name.valid || name.pristine">
+    <mat-error [hidden]="">
       This field is required.
     </mat-error>
   </mat-form-field>
@@ -50,5 +50,4 @@
   <div class="submit-button">
     <button mat-raised-button color="primary" type="submit" [disabled]="addUserForm.invalid">Submit</button>
   </div>
-  <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
 </form>

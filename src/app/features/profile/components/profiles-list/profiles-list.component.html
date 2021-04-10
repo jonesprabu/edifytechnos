@@ -1,5 +1,5 @@
 <!-- Bring the flex layout-->
-<div fxLayout="row wrap" fxLayout.xs="column">
+<div fxLayout="row wrap" fxFill fxLayout.xs="column">
   <ng-container *ngIf="!errMsg; else showErrMsg">
     <div fxFlex.lt-md="50" fxFlex="33" fxFlex.gt-md="25" *ngFor="let user of profileDataService.userListState.$ | async" fxLayoutAlign="center">
 
@@ -12,6 +12,9 @@
   <ng-template #showErrMsg>
     {{errMsg}}
   </ng-template>
+  <div class="loader" fxLayout="column" fxFill fxLayoutAlign="center center">
+    <mat-spinner *ngIf="loading" diameter="60"></mat-spinner>
+  </div>
 
 </div>
 
